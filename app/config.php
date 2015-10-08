@@ -11,5 +11,5 @@ return array(
 		],
 		"directories"=>["my","tests"],
 		"test"=>false
-		dzdz;
+		
 );

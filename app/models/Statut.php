@@ -13,7 +13,7 @@ class Statut extends Base{
 	private $libelle;
 	private $ordre=0;
 	private $icon;
-
+	private $test;
 	public function getId() {
 		return $this->id;
 	}
