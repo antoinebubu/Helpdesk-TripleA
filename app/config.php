@@ -1,6 +1,6 @@
 <?php
 return array(
-		"siteUrl"=>"http://127.0.0.1/helpdesk/",
+		"siteUrl"=>"http://127.0.0.1/helpdesk-TripleA/",
 		"documentRoot"=>"DefaultC",
 		"database"=>[
 				"dbName"=>"helpdesk-TripleA",
@@ -10,5 +10,5 @@ return array(
 				"password"=>""
 		],
 		"directories"=>["my","tests"],
-		"test"=>true
+		"test"=>false
 );
