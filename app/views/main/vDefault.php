@@ -18,7 +18,7 @@
 				<a class="btn btn-info" href="tickets">Tickets</a>
 				<a class="btn btn-info" href="coucou">coucou</a>	
 				<a class="btn btn-info" href="coucou">coucou</a>	
-				<a class="btn btn-info" href="coucou">coucou</a>	
+	
 				<a class="btn btn-success" href="statuts">Statuts</a>
 				<a class="btn btn-warning" href="faqs">Faq</a>
 				<a class="btn btn-danger" href="messages">Messages</a>
