@@ -182,7 +182,7 @@ class Faqs extends \_DefaultController {
 		echo "</table>";
 		
 		if (Auth::isAdmin()){
-			echo "<a class='btn btn-primary' href='".$config["siteUrl"].$baseHref."/frm'>Ajouter...</a>";
+			echo "<a class='btn btn-primary btn-ajouter' href='".$config["siteUrl"].$baseHref."/frm'>Ajouter...</a>";
 		}
 	}
 	/***********************************************************************************************************************************************************************/
