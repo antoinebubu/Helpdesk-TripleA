@@ -28,9 +28,6 @@ class FirstTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals($ticket->getId(), 1);
 	}
 	
-	public function testNouveauxTickets(){
-		
-				
-	}
+
 	
 }
