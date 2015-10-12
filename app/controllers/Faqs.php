@@ -46,7 +46,7 @@ class Faqs extends \_DefaultController {
 	public function index($param=null){
 
 	global $config;
-		$this->orderBy="order by idCategorie";
+		$this->orderBy="order by dateCreation desc";
 		if(!is_array($param) && $param!=null){
 			$param=array($param);
 		}
@@ -74,6 +74,7 @@ class Faqs extends \_DefaultController {
 			switch ($_SESSION["sortBy"]){
 				case "idCategorie":
 					$func="getCategorie";
+					$this->orderBy="order by idCategorie";
 					break;
 				case "dateCreation":
 					$func="getDateCreation";
@@ -245,7 +246,7 @@ class Faqs extends \_DefaultController {
 			if($object!==NULL){
 				$object->setDisable("1");
 				DAO::update($object);
-				$msg=new DisplayedMessage("Article désactivé");
+				$msg=new DisplayedMessage("<b>Article</b> ".$object->getTitre()." <b>désactivé</b>");
 			}else{
 				$msg=new DisplayedMessage($this->model." introuvable","warning");
 			}
@@ -263,7 +264,7 @@ class Faqs extends \_DefaultController {
 			if($object!==NULL){
 				$object->setDisable("0");
 				DAO::update($object);
-				$msg=new DisplayedMessage("Article activé");
+				$msg=new DisplayedMessage("<b>Article</b> ".$object->getTitre()." <b>activé</b>");
 			}else{
 				$msg=new DisplayedMessage($this->model." introuvable","warning");
 			}
@@ -285,7 +286,7 @@ class Faqs extends \_DefaultController {
 	public function mesArticles($param = NULL) {
 		
 	global $config;
-		$this->orderBy="order by idCategorie";
+		$this->orderBy="order by dateCreation desc";
 		$baseHref=get_class($this);		
 		
 		$objects=DAO::getAll($this->model,$this->where." ".$this->orderBy);
