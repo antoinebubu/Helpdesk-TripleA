@@ -1,6 +1,6 @@
 <?php
 use micro\orm\DAO;
-class FirstTest extends \PHPUnit_Framework_TestCase {
+class NouveauxTicketsTest extends \PHPUnit_Framework_TestCase {
 	
 	
 	
