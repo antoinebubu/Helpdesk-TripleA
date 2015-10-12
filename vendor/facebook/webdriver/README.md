@@ -31,7 +31,7 @@ Download the composer.phar
 
 Install the library.
 
-    php composer.phar install
+    ## php composer.phar install
         
    
 
