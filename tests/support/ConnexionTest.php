@@ -14,4 +14,4 @@ class ConnexionTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals(3, 2+1);
 	}
 
-}
+} 
