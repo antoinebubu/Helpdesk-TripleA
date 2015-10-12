@@ -9,15 +9,15 @@ class Logger{
 		ChromePhp::getInstance()->addSetting(ChromePhp::BACKTRACE_LEVEL, 2);
 	}
 	public static function log($id,$message){
-		if(!Logger::$test)
-		ChromePhp::log($id.":".$message);
+		//if(!Logger::$test)
+		//ChromePhp::log($id.":".$message);
 	}
 	public static function warn($id,$message){
-		if(!Logger::$test)
-		ChromePhp::warn($id.":".$message);
+		//if(!Logger::$test)
+		//ChromePhp::warn($id.":".$message);
 	}
 	public static function error($id,$message){
-		if(!Logger::$test)
-		ChromePhp::error($id.":".$message);
+		/*if(!Logger::$test)
+		ChromePhp::error($id.":".$message);*/
 	}
 }
