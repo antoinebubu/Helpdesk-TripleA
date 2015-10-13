@@ -6,6 +6,6 @@
 		<label for='mdp'> Mot de passe : </label>
 		<input type='text' id='mdp' name='mdp'> </br></br>
 		
-		<input type='submit' class='btn btn-primary' id='btConnexion' value='Valider'>
+		<input type='submit' class='btn btn-primary' id='btLogin' value='Valider'>
 	</div>
 </form>
