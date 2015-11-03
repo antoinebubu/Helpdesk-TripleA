@@ -1,5 +1,4 @@
 
-
 <div class="container">
 	<div class="well well-lg">
 		<div id="main">
@@ -28,12 +27,9 @@
 				<legend>Connexion</legend>
 					<!-- <a class="btn btn-default" href="defaultc/asAdmin">Connexion en tant qu'admin</a> -->
 					<?php if(Auth::isAuth()){ ?>
-					<a class="btn btn-default" href="connexions/compte">Mon compte</a>
-					<?php } 
-					 else { ?>
-					<a class="btn btn-default" href="connexions">Connexion</a>
+					<a class="btn btn-default" href="connexions/compte" id="btCompte">Mon compte</a>
+					<a class="btn btn-warning" href="defaultc/disconnect" id="btDeco">Déconnexion</a>
 					<?php } ?>
-					<a class="btn btn-warning" href="defaultc/disconnect">Déconnexion</a>
 			</fieldset>
 			<fieldset>
 				<legend>Exemples</legend>

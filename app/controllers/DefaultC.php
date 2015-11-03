@@ -10,12 +10,13 @@ use micro\views\Gui;
  * @package helpdesk.controllers
  */
 class DefaultC extends BaseController {
-
+	
 	/**
 	 * Affiche la page par défaut du site
 	 * @see BaseController::index()
 	 */
 	public function index() {
+		
 		$this->loadView("main/vHeader",array("infoUser"=>Auth::getInfoUser()));
 		
 		$notif= sizeof(DAO::getAll("Ticket", "idStatut='1'"));
@@ -27,7 +28,22 @@ class DefaultC extends BaseController {
 		echo Jquery::compile();
 	}
 	
+
+	/* (non-PHPdoc)
+	 * @see \micro\controllers\BaseController::isValid()
+	 */
+	public function isValid() {
+		return Auth::isAuth();
+	}
 	
+	
+	/* (non-PHPdoc)
+	 * @see \micro\controllers\BaseController::onInvalidControl()
+	 */
+	public function onInvalidControl() {
+		$this->forward("Connexions","index");
+		die();
+	}
 
 	/**
 	 * Affiche la page de test
