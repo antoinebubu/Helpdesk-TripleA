@@ -99,7 +99,7 @@ class Faqs extends \_DefaultController {
 		
 		
 		if(Auth::isAdmin()){
-			echo "<li style='float:left; margin-right:10px;'><a class='btn btn-primary' href='".$config["siteUrl"].$baseHref."/mesArticles'>Mes articles</a></li>";
+			echo "<li style='float:left; margin-right:10px;'><a class='btn btn-primary MesArticles' href='".$config["siteUrl"].$baseHref."/mesArticles'>Mes articles</a></li>";
 		}
 		
 		echo "<li style='float:left; margin-right:10px;'><a class='btn btn-info' href='".$config["siteUrl"].$baseHref."'>Tous les articles</a></li>";
@@ -147,14 +147,14 @@ class Faqs extends \_DefaultController {
 				echo "<td class='td-center'><a class='btn btn-success btn-xs' href='".$baseHref."/frm2/".$object->getId()."'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></td>";
 					
 				if (Auth::getUser()==$object->getUser()){
-					echo "<td class='td-center'><a class='btn btn-primary btn-xs' href='".$baseHref."/frm/".$object->getId()."'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a></td>";
+					echo "<td class='td-center x '><a class='btn btn-primary btn-xs' href='".$baseHref."/frm/".$object->getId()."'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a></td>";
 					if ($object->getDisable()=="0"){
-						echo "<td class='td-center'><a class='btn btn-warning btn-xs' href='".$baseHref."/disable/".$object->getId()."'><span class='glyphicon glyphicon-pause' aria-hidden='true'></span></a></td>";
+						echo "<td class='td-center x'><a class='btn btn-warning btn-xs' href='".$baseHref."/disable/".$object->getId()."'><span class='glyphicon glyphicon-pause' aria-hidden='true'></span></a></td>";
 					}
 					else {
-						echo "<td class='td-center'><a class='btn btn-info btn-xs' href='".$baseHref."/activate/".$object->getId()."'><span class='glyphicon glyphicon-play' aria-hidden='true'></span></a></td>";
+						echo "<td class='td-center x'><a class='btn btn-info btn-xs' href='".$baseHref."/activate/".$object->getId()."'><span class='glyphicon glyphicon-play' aria-hidden='true'></span></a></td>";
 					}
-					echo "<td class='td-center'><a class='btn btn-danger btn-xs' href='".$baseHref."/delete/".$object->getId()."'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>";
+					echo "<td class='td-center x'><a class='btn btn-danger btn-xs' href='".$baseHref."/delete/".$object->getId()."'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>";
 				}
 			}
 			echo "</tr>";
