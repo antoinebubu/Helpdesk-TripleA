@@ -12,7 +12,7 @@ use micro\orm\DAO;
  */
 class Connexions extends BaseController {
 	public function Connexions(){
-		$this->title="Connexion";
+		$this->title="";
 		$this->title2="Mon compte";
 	}
 	

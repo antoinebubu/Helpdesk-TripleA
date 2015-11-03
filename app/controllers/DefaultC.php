@@ -16,7 +16,6 @@ class DefaultC extends BaseController {
 	 * @see BaseController::index()
 	 */
 	public function index() {
-		
 
 		$this->loadView("main/vHeader",array("infoUser"=>Auth::getInfoUser()));
 		
@@ -88,7 +87,8 @@ class DefaultC extends BaseController {
 		$_SESSION['KCFINDER'] = array(
 				'disabled' => true
 		);
-		$this->index();
+		$co=new Connexions();
+		$co->index();
 	}
 
 	public function ckEditorSample(){
