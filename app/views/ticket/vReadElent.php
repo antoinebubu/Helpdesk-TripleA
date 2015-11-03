@@ -18,7 +18,6 @@
 		<label for="categorie"><h4>Date de creation : </h4></label>
 		<p id="categorie" name="categorie"><?=$ticket->getDateCreation()?></p>
 	</div>
-	<a href="tickets" class="btn btn-primary" id="btReadElent">Retour</a>
 </form>
 <?php 
 $idTicket = $ticket->getId();
@@ -38,5 +37,6 @@ foreach ($msg as $oklm){ ?>
 	<input type='hidden' name="ticket" value="<?php echo $ticket->getId();?>">
 	<label for="contenu">Contenu de votre message:</label> <br>
 	<textarea name="contenu" style="width:100%; height:100px; display:block; margin-bottom:10px; border:2px #aaa solid; border-radius:5px;"></textarea>
-	<button class="btn btn-primary" style="margin-bottom:100px; display:block;">Ajouter</button>
+	<button class="btn btn-primary">Ajouter</button>
+	<a href="tickets" class="btn btn-primary" id="btReadElent">Retour</a>
 </form>
