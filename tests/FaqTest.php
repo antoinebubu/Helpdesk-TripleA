@@ -11,11 +11,11 @@ class FaqTest extends AjaxUnitTest {
 		DAO::connect($config["database"]["dbName"]);
 	}
 	
-	public function testArticleFAQ(){
+// 	public function testArticleFAQ(){
 			
-		$faq=DAO::getOne("Faq", "5");
-		$this->assertEquals($faq->getId(), 5);
-	}
+// 		$faq=DAO::getOne("Faq", "5");
+// 		$this->assertEquals($faq->getId(), 5);
+// 	}
 	
 	public function testButtonAdd(){
 		$this->get("DefaultC/asAdmin");

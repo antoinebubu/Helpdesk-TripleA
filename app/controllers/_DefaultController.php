@@ -49,7 +49,7 @@ class _DefaultController extends BaseController {
 		}
 		echo "</tbody>";
 		echo "</table>";
-		echo "<a class='btn btn-primary' href='".$config["siteUrl"].$baseHref."/frm'>Ajouter...</a>";
+		echo "<a class='ajouter btn btn-primary' href='".$config["siteUrl"].$baseHref."/frm'>Ajouter...</a>";
 		
 		
 		

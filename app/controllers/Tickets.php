@@ -32,7 +32,7 @@ class Tickets extends \_DefaultController {
 		echo "<tbody>";
 		foreach ($objects as $object){
 			echo "<tr>";
-			echo "<td class='titre-faq' style='width:80%'><a href='".$baseHref."/frm2/".$object->getId()."' style='color:#253939'>".$object->toString()."</a></td>";
+			echo "<td class='titre-faq' style='width:80%'><a class=".$baseHref."-".$object->getId()." href='".$baseHref."/frm2/".$object->getId()."' style='color:#253939'>".$object->toString()."</a></td>";
 			echo "<td class='td-center'><a class='btn btn-success btn-xs' href='".$baseHref."/frm2/".$object->getId()."'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></td>";
 			echo "<td class='td-center'><a class='btn btn-primary btn-xs' href='".$baseHref."/frm/".$object->getId()."'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a></td>".
 					"<td class='td-center'><a class='btn btn-warning btn-xs' href='".$baseHref."/delete/".$object->getId()."'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>";
@@ -40,7 +40,7 @@ class Tickets extends \_DefaultController {
 		}
 		echo "</tbody>";
 		echo "</table>";
-		echo "<a class='btn btn-primary' href='".$config["siteUrl"].$baseHref."/frm'>Ajouter...</a>";
+		echo "<a class='ajouter btn btn-primary' href='".$config["siteUrl"].$baseHref."/frm'>Ajouter...</a>";
 	}
 	
 

@@ -75,9 +75,9 @@ public function index($message=null){
 			echo "</tr>";
 			
 		}
-		echo "</tbody>";
-		echo "</table>";
-		echo "<a class='btn btn-primary' href='".$config["siteUrl"].$baseHref."/frm'>Ajouter...</a>";
+			echo "</tbody>";
+			echo "</table>";
+			
 		//echo DAO::$db->query("SELECT COUNT(idStatut) FROM ticket where idStatut<1")->fetchColumn();
 	
 		

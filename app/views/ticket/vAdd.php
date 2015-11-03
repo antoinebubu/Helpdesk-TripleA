@@ -54,7 +54,7 @@ else{
 	
 
 	
-		echo  '<select class="form-control" class="idStatut" name="idStatut">'.$listStatut.'</select>';
+		echo  '<select class="form-control statut" class="idStatut" name="idStatut">'.$listStatut.'</select>';
 	}
 	 
 	 
@@ -75,7 +75,7 @@ else{
 	<input type="hidden" name="idUser" value="<?php echo $ticket->getUser()->getId()?>">
 </div>
 <div class="form-group">
-	<input type="submit" value="Valider" class="btn btn-default">
+	<input type="submit" value="Valider" class="btn btn-default valider">
 	<a class="btn btn-default" href="<?php echo $config["siteUrl"]?>tickets">Annuler</a>
 </div>
 </fieldset>
