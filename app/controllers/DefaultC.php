@@ -17,11 +17,7 @@ class DefaultC extends BaseController {
 	 */
 	public function index() {
 		
-<<<<<<< HEAD
-		
-		
-=======
->>>>>>> origin/master
+
 		$this->loadView("main/vHeader",array("infoUser"=>Auth::getInfoUser()));
 		
 		$notif= sizeof(DAO::getAll("Ticket", "idStatut='1'"));

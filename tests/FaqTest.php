@@ -11,22 +11,18 @@ class FaqTest extends AjaxUnitTest {
 		DAO::connect($config["database"]["dbName"]);
 	}
 	
-// 	public function testArticleFAQ(){
-			
-<<<<<<< HEAD
-// 		$faq=DAO::getOne("Faq", "5");
-// 		$this->assertEquals($faq->getId(), 5);
-// 	}
+ 	public function testArticleFAQ(){
+		$faq=DAO::getOne("Faq", "5");
+		$this->assertEquals($faq->getId(), 5);
+	}
 	
 	public function testButtonAdd(){
-=======
 		$faq=DAO::getOne("Faq", "5");
 		$this->assertEquals($faq->getId(), 5);
 	}
 
 
 	public function test_Bouton_Ajouter_Retour_Article_FAQ(){
->>>>>>> origin/master
 		$this->get("DefaultC/asAdmin");
 		$this->waitFor(5);
 		$this->get("Faqs");
