@@ -21,6 +21,26 @@ class _DefaultController extends BaseController {
 	 * @var string zone titre h1 de la page
 	 */
 	protected $title;
+	
+	
+	/* (non-PHPdoc)
+	 * @see \micro\controllers\BaseController::isValid()
+	 */
+	public function isValid() {
+		return Auth::isAuth();
+
+	}
+	
+	
+	/* (non-PHPdoc)
+	 * @see \micro\controllers\BaseController::onInvalidControl()
+	 */
+	public function onInvalidControl() {
+		$this->forward("Connexions","index");
+		die();
+	}
+
+
 
 	/**
 	 * Affiche la liste des instances de la class du modèle associé $model

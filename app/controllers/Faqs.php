@@ -104,8 +104,8 @@ class Faqs extends \_DefaultController {
 		
 		echo "<li style='float:left; margin-right:10px;'><a class='btn btn-info' href='".$config["siteUrl"].$baseHref."'>Tous les articles</a></li>";
 		echo 	'<form method="post" action="faqs/search/mess/'.@$param[1].'">
-					<li style="float:left;"><input name="titre" class="btn" style="background-color:#ddd; color:#000; cursor:text; border-radius:4px 0px 0px 4px; border-top:solid 2px #999; border-bottom:solid 2px #999; border-left:solid 2px #999;" placeholder="Recherche"></input></li>
-					<li style="float:left;"><button type="submit" class="btn glyphicon glyphicon-search" id="btUpdateTitre" style="border-radius:0px 4px 4px 0px; top:0px; border-top:solid 2px #999; border-bottom:solid 2px #999; border-right:solid 2px #999; border-left:solid 1px #bbb"><?php echo $ajou_modif?></button></li>
+					<li style="float:left;"><input id="inputRecherche" name="titre" class="btn" style="background-color:#ddd; color:#000; cursor:text; border-radius:4px 0px 0px 4px; border-top:solid 2px #999; border-bottom:solid 2px #999; border-left:solid 2px #999;" placeholder="Recherche"></input></li>
+					<li style="float:left;"><button type="submit" class="btn glyphicon glyphicon-search" id="btRecherche" style="border-radius:0px 4px 4px 0px; top:0px; border-top:solid 2px #999; border-bottom:solid 2px #999; border-right:solid 2px #999; border-left:solid 1px #bbb"><?php echo $ajou_modif?></button></li>
 				</form>
 				</ul>';
 		
@@ -114,14 +114,14 @@ class Faqs extends \_DefaultController {
 			echo "<tr>";
 				echo "<th colspan='5' style='padding-left:90%'>";
 				echo "<div class='btn-group'>";
-					echo "<button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>";
+					echo "<button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-expanded='false' id='btTrier'>";
 						echo "Trier par... <span class='caret'></span>";
 					echo "</button>";
 					echo "<ul class='dropdown-menu' role='menu'>";
-						echo "<li><a href='Faqs/index/mess/removeFilter'>Sans filtre</a></li>";
-						echo "<li><a href='Faqs/index/mess/idCategorie'>categorie</a></li>";
-						echo "<li><a href='Faqs/index/mess/dateCreation'>date de creation</a></li>";
-						echo "<li><a href='Faqs/index/mess/popularity'>Popularité</a></li>";
+						echo "<li><a href='Faqs/index/mess/removeFilter' id='sansFiltre'> sans filtre </a></li>";
+						echo "<li><a href='Faqs/index/mess/idCategorie' id='categorie'> categorie </a></li>";
+						echo "<li><a href='Faqs/index/mess/dateCreation' id='dateCreation'> date de creation </a></li>";
+						echo "<li><a href='Faqs/index/mess/popularity' id='popularite'> popularité </a></li>";
 					echo "</ul>";
 				echo "</div>";
 				echo "</th>";
@@ -142,7 +142,7 @@ class Faqs extends \_DefaultController {
 				}
 				
 				echo "<tr>";
-				echo "<td class='titre-faq' style='width:80%'><a href='".$baseHref."/frm2/".$object->getId()."' style='color:#253939'><b>".$object->getTitre()."</b> - ".$object->getUser()."</a></td>";
+				echo "<td class='titre-faq' style='width:80%'><a id=".$object->getId()." href='".$baseHref."/frm2/".$object->getId()."' style='color:#253939'><b>".$object->getTitre()."</b> - ".$object->getUser()."</a></td>";
 				echo "<td>".$object->getPopularity()."</td>";
 				echo "<td class='td-center'><a class='btn btn-success btn-xs' href='".$baseHref."/frm2/".$object->getId()."'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></td>";
 					
@@ -171,7 +171,7 @@ class Faqs extends \_DefaultController {
 				else{
 					$currentOrder=$object->$func()."";
 				}
-					echo "<td class='titre-faq'><a href='".$baseHref."/frm2/".$object->getId()."' style='color:#253939'><b>".$object->getTitre()."</b> - ".$object->getUser()."</a></td>";
+					echo "<td class='titre-faq'><a id=".$object->getId()." href='".$baseHref."/frm2/".$object->getId()."' style='color:#253939'><b>".$object->getTitre()."</b> - ".$object->getUser()."</a></td>";
 					echo "<td class='td-center'><a class='btn btn-success btn-xs' href='".$baseHref."/frm2/".$object->getId()."'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></td>";
 				}
 			}
