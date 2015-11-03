@@ -26,7 +26,7 @@ $msg=DAO::getAll("message", "idTicket='".$idTicket."'");
 
 foreach ($msg as $oklm){ ?>
 
-	<div class="form-group" style="background-color:#ddd; padding:20px; margin-top:10px; display:block; overflow:hidden; border:solid #aaa 2px; border-radius:5px;">
+	<div class="form-group" style="background-color:<?php if ($oklm->getUser()->getAdmin()==True){echo '#FFC3C3;';}else{echo '#D4F8F9;';}?>padding:20px; margin-top:10px; margin-<?php if ($oklm->getUser()->getAdmin()==True){echo 'right:200px;';}else{echo 'left:200px;';}?> display:block; overflow:hidden; border:solid #aaa 2px; border-radius:5px;">
 		<p id="contMess" name="contMess"><?= $oklm->getContenu();?></p>
 		<br>
 		<p id="userMess" name="userMess" style="float:right; display:block; padding:10px;"><?= $oklm->getUser();?></p>
