@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/png" href="assets/img/favicon.ico" />
 <base href="<?php echo $config["siteUrl"]?>">
 <title>Helpdesk</title>
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>

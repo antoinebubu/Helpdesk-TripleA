@@ -60,7 +60,7 @@ class Auth {
 			$infoUser="<a class='btn btn-primary' href='defaultC/disconnect'>Déconnexion <span class='label label-success'>".$user."</span></a>";
 		}else{
 			$infoUser = '<div class="btn-group">
-							<a href="Connexions" class="btn btn-primary" id="btConnexion" style="">Connexion</a>
+// 							<a href="Connexions" class="btn btn-primary" id="btConnexion" style="">Connexion</a>
 						</div>';
 			/*
 			$infoUser='<div class="btn-group">
