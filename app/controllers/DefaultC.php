@@ -87,7 +87,8 @@ class DefaultC extends BaseController {
 		$_SESSION['KCFINDER'] = array(
 				'disabled' => true
 		);
-		$this->index();
+		$co=new Connexions();
+		$co->index();
 	}
 
 	public function ckEditorSample(){
