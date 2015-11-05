@@ -1,4 +1,10 @@
 <?php
+use micro\orm\DAO;
+use micro\views\Gui;
+use micro\js\Jquery;
+use micro\utils\RequestUtils;
+
+
 /**
  * Gestion des messages
  * @author jcheron
@@ -10,5 +16,16 @@ class Messages extends \_DefaultController {
 		parent::__construct();
 		$this->title="Messages";
 		$this->model="Message";
+	}
+	
+	
+	public function nouveauMess() {
+		$contenu = $_POST['newMess'];
+		$user = $_POST['idUser'];
+		$ticket = $_POST['idTicket'];
+		// echo $contenu; echo $user; echo $ticket;
+		DAO::$db->execute("INSERT INTO message(id,contenu,idUser,idTicket) VALUES('','".$contenu."',".$user.",".$ticket.")");
+		$this->forward("Tickets","frm2",$ticket);
+		
 	}
 }
