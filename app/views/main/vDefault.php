@@ -29,6 +29,7 @@
 			
 					<!-- <a class="btn btn-default" href="defaultc/asAdmin">Connexion en tant qu'admin</a> -->
 					<?php if(Auth::isAuth()){ ?>
+
 					<fieldset>
 					<legend>Connexion</legend>
 					
@@ -36,11 +37,10 @@
 					<a class="btn btn-default" href="connexions/compte" id="btCompte">Mon compte</a>
 					<a class="btn btn-warning" href="defaultc/disconnect" id="btDeco">Déconnexion</a>
 					
+
 					</fieldset>
 					<?php } ?>
 					
-
-			
 	<!--		<fieldset>
 	 			<legend>Exemples</legend>
 					<a class="btn btn-link" href="defaultc/ckEditorSample">Exemple ckEditor</a>
