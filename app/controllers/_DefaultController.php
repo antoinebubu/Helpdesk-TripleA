@@ -129,6 +129,11 @@ class _DefaultController extends BaseController {
 			$this->setValuesToObject($object);
 			if($_POST["id"]){
 				try{
+					
+					if (Auth::isAdmin() && $object->getId()!=1 && $this->title=="Tickets"){
+						$object->setIdAdmin(Auth::getUser()->getId());
+					}
+					
 					DAO::update($object);
 					
 					$msg=new DisplayedMessage($this->model." `{$object->toString()}` mis à jour");

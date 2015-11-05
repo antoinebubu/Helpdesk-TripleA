@@ -14,6 +14,7 @@ class Ticket extends Base{
 	private $titre;
 	private $description;
 	private $dateCreation;
+	private $idAdmin;
 
 	/**
 	 * @ManyToOne
@@ -46,6 +47,15 @@ class Ticket extends Base{
 
 	public function setId($id) {
 		$this->id=$id;
+		return $this;
+	}
+	
+	public function getIdAdmin() {
+		return $this->id;
+	}
+	
+	public function setIdAdmin($idAdmin) {
+		$this->idAdmin=$idAdmin;
 		return $this;
 	}
 
