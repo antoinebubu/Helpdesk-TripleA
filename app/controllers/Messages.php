@@ -1,4 +1,10 @@
 <?php
+use micro\orm\DAO;
+use micro\views\Gui;
+use micro\js\Jquery;
+use micro\utils\RequestUtils;
+
+
 /**
  * Gestion des messages
  * @author jcheron
@@ -10,5 +16,13 @@ class Messages extends \_DefaultController {
 		parent::__construct();
 		$this->title="Messages";
 		$this->model="Message";
+	}
+	
+	
+	public function nouveauMess() {
+		$contenu = $_POST['newMess'];
+		$date = $_POST['dateMess'];
+		echo $contenu;
+		echo $date;
 	}
 }
