@@ -32,7 +32,7 @@ class Tickets extends \_DefaultController {
 		echo "<tbody>";
 		foreach ($objects as $object){
 			echo "<tr>";
-			echo "<td class='titre-faq' style='width:80%'><a class=".$baseHref."-".$object->getId()." href='".$baseHref."/frm2/".$object->getId()."' style='color:#253939'>".$object->toString()."</a></td>";
+			echo "<td class='titre-faq' style='width:80%'><a id=".$object->getId()." class=".$baseHref."-".$object->getId()." href='".$baseHref."/frm2/".$object->getId()."' style='color:#253939'>".$object->toString()."</a></td>";
 			echo "<td class='td-center'><a class='btn btn-success btn-xs' href='".$baseHref."/frm2/".$object->getId()."'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></td>";
 			if (Auth::isAdmin()){
 			echo "<td class='td-center'><a class='btn btn-primary btn-xs' href='".$baseHref."/frm/".$object->getId()."'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a></td>".
