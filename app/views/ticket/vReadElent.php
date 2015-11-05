@@ -20,8 +20,10 @@
 	</div>
 </form>
 <?php 
+
 $idTicket = $ticket->getId();
-$msg=DAO::getAll("message", "idTicket='".$idTicket."'");
+$msg = DAO::getAll("message", "idTicket='".$idTicket."'");
+$user = $_SESSION["user"]->getId();
 
 foreach ($msg as $oklm){ ?>
 
@@ -34,9 +36,10 @@ foreach ($msg as $oklm){ ?>
 <?php } ?>
 
 <form class="form-group" action='Messages/nouveauMess' method='post'>
-	<input type='hidden' name="ticket" value="<?php echo $ticket->getId();?>">
-	<label for="contenu">Contenu de votre message:</label> <br>
-	<textarea name="contenu" style="width:100%; height:100px; display:block; margin-bottom:10px; border:2px #aaa solid; border-radius:5px;"></textarea>
-	<button class="btn btn-primary">Ajouter</button>
+	<input type='hidden' name="idUser" id="idUser" value="<?php echo $user ?>">
+	<input type='hidden' name="idTicket" id="idTicket" value="<?php echo $idTicket ?>">
+	<label for="newMess">Contenu de votre message : </label> <br>
+	<textarea name="newMess" style="width:100%; height:100px; display:block; margin-bottom:10px; border:2px #aaa solid; border-radius:5px;" id="newMess"></textarea>
+	<button class="btn btn-primary" name="btAjouter">Ajouter</button>
 	<a href="tickets" class="btn btn-primary" id="btReadElent">Retour</a>
 </form>

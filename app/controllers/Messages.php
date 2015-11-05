@@ -21,8 +21,11 @@ class Messages extends \_DefaultController {
 	
 	public function nouveauMess() {
 		$contenu = $_POST['newMess'];
-		$date = $_POST['dateMess'];
-		echo $contenu;
-		echo $date;
+		$user = $_POST['idUser'];
+		$ticket = $_POST['idTicket'];
+		// echo $contenu; echo $user; echo $ticket;
+		DAO::$db->execute("INSERT INTO message(id,contenu,idUser,idTicket) VALUES('','".$contenu."',".$user.",".$ticket.")");
+		$this->forward("Tickets","frm2",$ticket);
+		
 	}
 }
