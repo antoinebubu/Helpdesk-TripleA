@@ -2,6 +2,7 @@
 use micro\orm\DAO;
 class FaqTest extends AjaxUnitTest {
 	
+	
 	/*
 	 * @see_PHPUnit_Framework_TestCase::setUpBeforeClass()
 	 */
