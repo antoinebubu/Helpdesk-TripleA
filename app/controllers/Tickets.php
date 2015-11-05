@@ -27,13 +27,25 @@ class Tickets extends \_DefaultController {
 			$this->_showDisplayedMessage($message);
 		}
 		$objects=DAO::getAll($this->model);
+		$modif=DAO::getAll("ticket");
+		
 		echo "<table class='table table-striped'>";
+		
+		
+	
+		
 		echo "<thead><tr><th>".$this->model."</th></tr></thead>";
 		echo "<tbody>";
 		foreach ($objects as $object){
+			
+		
 			echo "<tr>";
 			echo "<td class='titre-faq' style='width:80%'><a class=".$baseHref."-".$object->getId()." href='".$baseHref."/frm2/".$object->getId()."' style='color:#253939'>".$object->toString()."</a></td>";
 			echo "<td class='td-center'><a class='btn btn-success btn-xs' href='".$baseHref."/frm2/".$object->getId()."'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></td>";
+			
+			
+			
+			
 			if (Auth::isAdmin()){
 			echo "<td class='td-center'><a class='btn btn-primary btn-xs' href='".$baseHref."/frm/".$object->getId()."'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a></td>".
 					"<td class='td-center'><a class='btn btn-warning btn-xs' href='".$baseHref."/delete/".$object->getId()."'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>";
@@ -58,7 +70,7 @@ class Tickets extends \_DefaultController {
 		$ArticleMax=DAO::getOne("Faq","id=(SELECT max(id) FROM Faq)");
 		echo $ArticleMax;
 	}
-
+	
 	
 	public function messages($id){
 		$ticket=DAO::getOne("Ticket", $id[0]);
@@ -76,10 +88,11 @@ class Tickets extends \_DefaultController {
 			echo "</tbody>";
 			echo "</table>";
 			echo Jquery::execute("$(function () {
-					  $('[data-toggle=\"popover\"]').popover({'trigger':'hover','html':true})
+					  $('[data-toggle=\"popover\"]').popover({'trigger':'click','html':true})
 				})");
 		}
 	}
+	
 
 	public function frm2($id = NULL) {
 		$ticket = $this->getInstance($id);

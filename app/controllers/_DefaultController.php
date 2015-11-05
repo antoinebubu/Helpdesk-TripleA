@@ -16,7 +16,7 @@ class _DefaultController extends BaseController {
 	/**
 	 * @var int durée en millisecondes d'affichage des messages d'information
 	 */
-	protected $messageTimerInterval=5000;
+	protected $messageTimerInterval=0;
 	/**
 	 * @var string zone titre h1 de la page
 	 */
@@ -55,6 +55,8 @@ class _DefaultController extends BaseController {
 			}
 			$message->setTimerInterval($this->messageTimerInterval);
 			$this->_showDisplayedMessage($message);
+			
+			
 		}
 		$objects=DAO::getAll($this->model);
 		echo "<table class='table table-striped'>";
@@ -131,7 +133,8 @@ class _DefaultController extends BaseController {
 				try{
 					DAO::update($object);
 					
-					$msg=new DisplayedMessage($this->model." `{$object->toString()}` mis à jour");
+				
+					$msg = new DisplayedMessage($this->model." `{$object->toString()}` mis à jour");
 				}catch(\Exception $e){
 					$msg=new DisplayedMessage("Impossible de modifier l'instance de ".$this->model,"danger");
 				}
