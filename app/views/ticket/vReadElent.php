@@ -18,7 +18,6 @@
 		<label for="categorie"><h4>Date de creation : </h4></label>
 		<p id="categorie" name="categorie"><?=$ticket->getDateCreation()?></p>
 	</div>
-	<a href="tickets" class="btn btn-primary" id="btReadElent">Retour</a>
 </form>
 <?php 
 $idTicket = $ticket->getId();
@@ -26,7 +25,7 @@ $msg=DAO::getAll("message", "idTicket='".$idTicket."'");
 
 foreach ($msg as $oklm){ ?>
 
-	<div class="form-group" style="background-color:#ddd; padding:20px; margin-top:10px; display:block; overflow:hidden; border:solid #aaa 2px; border-radius:5px;">
+	<div class="form-group" style="background-color:<?php if ($oklm->getUser()->getAdmin()==True){echo '#FFC3C3;';}else{echo '#D4F8F9;';}?>padding:20px; margin-top:10px; margin-<?php if ($oklm->getUser()->getAdmin()==True){echo 'right:200px;';}else{echo 'left:200px;';}?> display:block; overflow:hidden; border:solid #aaa 2px; border-radius:5px;">
 		<p id="contMess" name="contMess"><?= $oklm->getContenu();?></p>
 		<br>
 		<p id="userMess" name="userMess" style="float:right; display:block; padding:10px;"><?= $oklm->getUser();?></p>
@@ -38,5 +37,6 @@ foreach ($msg as $oklm){ ?>
 	<input type='hidden' name="ticket" value="<?php echo $ticket->getId();?>">
 	<label for="contenu">Contenu de votre message:</label> <br>
 	<textarea name="contenu" style="width:100%; height:100px; display:block; margin-bottom:10px; border:2px #aaa solid; border-radius:5px;"></textarea>
-	<button class="btn btn-primary" style="margin-bottom:100px; display:block;">Ajouter</button>
+	<button class="btn btn-primary">Ajouter</button>
+	<a href="tickets" class="btn btn-primary" id="btReadElent">Retour</a>
 </form>

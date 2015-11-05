@@ -29,6 +29,7 @@
 			
 					<!-- <a class="btn btn-default" href="defaultc/asAdmin">Connexion en tant qu'admin</a> -->
 					<?php if(Auth::isAuth()){ ?>
+<<<<<<< HEAD
 
 					<fieldset>
 					<legend>Connexion</legend>
@@ -45,13 +46,32 @@
 					<a class="btn btn-default" href="connexions/compte" id="btCompte">Mon compte</a>
 					<a class="btn btn-warning" href="defaultc/disconnect" id="btDeco">Déconnexion</a>
 					
+=======
+					<fieldset>
+					<legend>Connexion</legend>
+					<a class="btn btn-default" href="connexions/compte">Mon compte</a>
+					<a class="btn btn-warning" href="defaultc/disconnect" id="btDeco">Déconnexion</a>
+					<?php } 
+					?>
+					</fieldset>
+						
+>>>>>>> 09dce9d40abd565d2123d76e39563b0c5136a429
 			</fieldset>
+	<!--		<fieldset>
+	 			<legend>Exemples</legend>
+					<a class="btn btn-link" href="defaultc/ckEditorSample">Exemple ckEditor</a>
+					<a class="btn btn-link btAjax">Exemple ajax (liste des utilisateurs)</a>
+			</fieldset>    -->
+
 			<fieldset>
 				<legend>Exemples</legend>
 					<a class="btn btn-link" href="defaultc/ckEditorSample">Exemple ckEditor</a>
 					<a class="btn btn-link btAjax">Exemple ajax (liste des utilisateurs)</a>
 			</fieldset>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 09dce9d40abd565d2123d76e39563b0c5136a429
 		</div>
 		<div id="response"></div>
 	</div>
