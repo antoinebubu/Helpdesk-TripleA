@@ -47,7 +47,7 @@ class Tickets extends \_DefaultController {
 			
 			
 			if (Auth::isAdmin()){
-			echo "<td class='td-center'><a class='btn btn-primary btn-xs' href='".$baseHref."/frm/".$object->getId()."'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a></td>".
+			echo "<td class='td-center'><a class='btn btn-primary btn-xs' href='tickets/updateStatut/".$object->getId()."'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a></td>".
 					"<td class='td-center'><a class='btn btn-warning btn-xs' href='".$baseHref."/delete/".$object->getId()."'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>";
 			}
 			echo "</tr>";
@@ -100,60 +100,48 @@ class Tickets extends \_DefaultController {
 	}
 	
 	public function frm($id=NULL){
-		$ticket=$this->getInstance($id);
+	$ticket=$this->getInstance($id);
 		$categories=DAO::getAll("Categorie");
-		$statut=DAO::getAll("Statut");
-		
-		
 		if($ticket->getCategorie()==null){
 			$cat=-1;
-			$stat=-1;
-			
-		}
-		else{
-			
+		}else{
 			$cat=$ticket->getCategorie()->getId();
+		}
+		
+		$statut=DAO::getAll("Statut");
+		if($ticket->getStatut()==null){
 			$stat=$ticket->getStatut()->getId();
-			
+		}else{
+			$stat=$ticket->getStatut()->getId();
 		}
 		
 		$listCat=Gui::select($categories,$cat,"Sélectionner une catégorie ...");
-
-		$listStatut=Gui::select($statut, $stat, "Sélectionner un statut ...");
 		$listType=Gui::select(array("demande","intervention"),$ticket->getType(),"Sélectionner un type ...");
+		$listStatut=Gui::select($statut,$stat,"Sélectionner un statut ...");
+		$statuts=DAO::getAll("Statut", "1=1");
 		
-		if (Auth::isAdmin() == false){
-			
-			
-			//$selectclass = '<select disabled class="form-control" name="idStatut"> '.statutNow.'</select>';
-			$this->loadView("ticket/vAdd",array("ticket"=>$ticket,"listCat"=>$listCat,"listType"=>$listType, "listStatut"=>$listStatut,));
-			echo Jquery::execute("CKEDITOR.replace( 'description');");
-			
-			
-			//statutupdate
-			//$statutUpdate= 'coucou';
-			/* '<div class="form-control" disabled name="idStatut"><br>
-					<input type="hidden" name="idStatut" value=" echo $ticket->getStatut()->getId()"><br>$ticket->getStatut();<br></div>';
-			 */
-			
-		}
-		
-		if (Auth::isAdmin()){
-			
-			$stat=$ticket->getStatut()->getId();
-			$this->loadView("ticket/vAdd",array("ticket"=>$ticket,"listCat"=>$listCat,"listType"=>$listType, "statut"=>$statut, "listStatut"=>$listStatut));
-			echo Jquery::execute("CKEDITOR.replace( 'description');"); 
-			
-			//updteticket
-			//s$statutUpdate='coucou1';
-			/* '<select class="form-control" class="idStatut" name="idStatut"><br>$listStatut<br></select>'; */
-			
-		}
-		
+		$this->loadView("ticket/vAdd",array("ticket"=>$ticket,"listCat"=>$listCat,"listType"=>$listType, "listStatut"=>$statuts));
+		echo Jquery::execute("CKEDITOR.replace( 'description');");
 	
 		
 			
 	}
+	
+	public function updateStatut($id=NULL){
+		$ticket=$this->getInstance($id);
+		$statut=DAO::getAll("Statut");
+		if($ticket->getStatut()==null){
+			$stat=-1;
+		}
+		else{
+			$stat=$ticket->getStatut()->getId();
+		}
+	
+		
+		$statuts=DAO::getAll("Statut", "1=1");
+		$this->loadView("ticket/vChgtStatut",array("ticket"=>$ticket, "listStatut"=>$statuts));
+	}
+	
 
 	/* (non-PHPdoc)
 	 * @see _DefaultController::setValuesToObject()
@@ -201,5 +189,9 @@ class Tickets extends \_DefaultController {
 		return Auth::isAuth();
 	}
 
+	
+	
+	
+	
 
 }

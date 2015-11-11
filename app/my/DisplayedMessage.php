@@ -17,6 +17,8 @@ class DisplayedMessage {
 		$this->dismissable=$dismissable;
 		$this->timerInterval=$timerInterval;
 	}
+	
+	
 
 	public function getContent() {
 		return $this->content;

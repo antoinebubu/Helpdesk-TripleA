@@ -16,12 +16,11 @@ class DefaultC extends BaseController {
 	 * @see BaseController::index()
 	 */
 	public function index() {
-<<<<<<< HEAD
+
 
 		
 
-=======
->>>>>>> origin/master
+
 
 		$this->loadView("main/vHeader",array("infoUser"=>Auth::getInfoUser()));
 		

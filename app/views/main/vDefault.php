@@ -6,8 +6,8 @@
 		<legend>Notifications</legend>
 		<?php if(Auth::isAuth()){
 	
-		$msg = new DisplayedMessage("");
-		echo $msg;
+// 		$msg = new DisplayedMessage("");
+// 		echo $msg;
 		}?>
 		
 		</fieldset>
@@ -38,10 +38,7 @@
 			
 					<!-- <a class="btn btn-default" href="defaultc/asAdmin">Connexion en tant qu'admin</a> -->
 					<?php if(Auth::isAuth()){ ?>
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
 
 					<fieldset>
 					<legend>Connexion</legend>
@@ -51,16 +48,16 @@
 					<a class="btn btn-warning" href="defaultc/disconnect" id="btDeco">Déconnexion</a>
 					
 
-<<<<<<< HEAD
+
 				
 						
 
 			</fieldset>
-=======
+
 					</fieldset>
 					<?php } ?>
 					
->>>>>>> origin/master
+
 	<!--		<fieldset>
 	 			<legend>Exemples</legend>
 					<a class="btn btn-link" href="defaultc/ckEditorSample">Exemple ckEditor</a>

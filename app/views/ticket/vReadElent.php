@@ -1,5 +1,38 @@
 <?php use micro\orm\DAO; ?>
+<head>
+<script>
 
+function submitForm()
+{ 
+    var xhr; 
+    try {  xhr = new ActiveXObject('Msxml2.XMLHTTP');   }
+    catch (e) 
+    {
+        try {   xhr = new ActiveXObject('Microsoft.XMLHTTP'); }
+        catch (e2) 
+        {
+           try {  xhr = new XMLHttpRequest();  }
+           catch (e3) {  xhr = false;   }
+         }
+    }
+  
+    xhr.onreadystatechange  = function() 
+    { 
+       if(xhr.readyState  == 4)
+       {
+        if(xhr.status  == 200) 
+            document.ajax.dyn="Received:"  + xhr.responseText; 
+        else
+            document.ajax.dyn="Error code " + xhr.status;
+        }
+    }; 
+ 
+   xhr.open( GET", "data.xml",  true); 
+   xhr.send(null); 
+} 
+
+</script>
+</head>
 <form name="frm2Titre" id="frm2Titre" onSubmit="return false;">
 	<div class="alert alert-info">Ticket : <?php echo $ticket->toString()?></div>
 	<div class="form-group">
@@ -35,11 +68,11 @@ foreach ($msg as $oklm){ ?>
 	
 <?php } ?>
 
-<form class="form-group" action='Messages/nouveauMess' method='post'>
+<form class="form-group" action='Messages/nouveauMess' method='post' name='ajax'>
 	<input type='hidden' name="idUser" id="idUser" value="<?php echo $user ?>">
 	<input type='hidden' name="idTicket" id="idTicket" value="<?php echo $idTicket ?>">
 	<label for="newMess">Contenu de votre message : </label> <br>
 	<textarea name="newMess" style="width:100%; height:100px; display:block; margin-bottom:10px; border:2px #aaa solid; border-radius:5px;" id="newMess"></textarea>
-	<button class="btn btn-primary" name="btAjouter">Ajouter</button>
+	<button class="btn btn-primary" name="btAjouter" value="submit" ONCLICK="submitForm()">Ajouter</button>
 	<a href="tickets" class="btn btn-primary" id="btReadElent">Retour</a>
 </form>
