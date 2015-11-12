@@ -191,7 +191,6 @@ class Tickets extends \_DefaultController {
 
 	
 	
-	
+}
 	
 
-}
