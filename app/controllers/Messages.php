@@ -26,15 +26,20 @@ class Messages extends \_DefaultController {
 		
 		DAO::$db->execute("INSERT INTO message(id,contenu,idUser,idTicket) VALUES('','".$contenu."',".$user.",".$ticket.")");
 		
-		$this->forward("Tickets","frm2",$ticket);
+		
 		
 		if (Auth::isAdmin()){
 			$obj=DAO::getOne("ticket", "id=".$ticket);
 			$obj->setIdAdmin(Auth::getUser()->getId());
+			
+			if ($obj->getStatut()==0){
+				$obj->setStatut(1);
+			}
 			DAO::update($obj);
 				
 		}
 		
+		$this->forward("Tickets","frm2",$ticket);
 		
 	}
 }
