@@ -26,6 +26,7 @@ class Tickets extends \_DefaultController {
 			$message->setTimerInterval($this->messageTimerInterval);
 			$this->_showDisplayedMessage($message);
 		}
+
 		
 		if (Auth::isAdmin()){
 			
@@ -42,36 +43,34 @@ class Tickets extends \_DefaultController {
 						"<td class='td-center'><a class='btn btn-warning btn-xs' href='".$baseHref."/delete/".$object->getId()."'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>";
 				}
 				echo "</tr>";
+			}
+			echo "</tbody>";
+			echo "</table>";
+
+			
 				
-			}
-			if (count($objects)==0){
-				echo "<tr><td>Aucun ticket attribué</td></tr>";
-			}
-			echo "</tbody>";
-			echo "</table>";
-			
-			echo "<br><br><br>";
-			$objects=DAO::getAll("Ticket", "idAdmin=0");
-			
-			echo "<table class='table table-striped'>";
-			echo "<thead><tr><th>Nouveaux Tickets</th></tr></thead>";
-			echo "<tbody>";
-			foreach ($objects as $object){
-				echo "<tr>";
-				echo "<td class='titre-faq' style='width:80%'><a class=".$baseHref."-".$object->getId()." href='".$baseHref."/frm2/".$object->getId()."' style='color:#253939'>".$object->toString()."</a></td>";
-				echo "<td class='td-center'><a class='btn btn-success btn-xs' href='".$baseHref."/frm2/".$object->getId()."'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></td>";
-				if (Auth::isAdmin()){
-					echo "<td class='td-center'><a class='btn btn-primary btn-xs' href='".$baseHref."/frm/".$object->getId()."'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a></td>".
-							"<td class='td-center'><a class='btn btn-warning btn-xs' href='".$baseHref."/delete/".$object->getId()."'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>";
+				echo "<br><br><br>";
+				$objects=DAO::getAll("Ticket", "idAdmin=0");
+				
+				echo "<table class='table table-striped'>";
+				echo "<thead><tr><th>Nouveaux Tickets</th></tr></thead>";
+				echo "<tbody>";
+				foreach ($objects as $object){
+					echo "<tr>";
+					echo "<td class='titre-faq' style='width:80%'><a class=".$baseHref."-".$object->getId()." href='".$baseHref."/frm2/".$object->getId()."' style='color:#253939'>".$object->toString()."</a></td>";
+					echo "<td class='td-center'><a class='btn btn-success btn-xs' href='".$baseHref."/frm2/".$object->getId()."'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></td>";
+					if (Auth::isAdmin()){
+						echo "<td class='td-center'><a class='btn btn-primary btn-xs' href='".$baseHref."/frm/".$object->getId()."'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a></td>".
+								"<td class='td-center'><a class='btn btn-warning btn-xs' href='".$baseHref."/delete/".$object->getId()."'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>";
+					}
+					echo "</tr>";
+				}	
+				
+				if (count($objects)==0){
+					echo "<tr><td>Aucun nouveau ticket</td></tr>";
 				}
-				echo "</tr>";
-					
-			}
-			if (count($objects)==0){
-				echo "<tr><td>Aucun nouveau ticket</td></tr>";
-			}
-			echo "</tbody>";
-			echo "</table>";
+				echo "</tbody>";
+				echo "</table>";
 			
 			
 		}else{

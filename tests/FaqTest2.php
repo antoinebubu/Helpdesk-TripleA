@@ -14,7 +14,21 @@ class ConnexionTest extends AjaxUnitTest {
  		$this->waitFor(1000);
  	}*/
 	
-	/*public function testLireLien() {
+	public function testLireLien() {
+		$this->get("Connexions");
+		$this->waitFor(10);
+		$this->assertPageContainsText("Connexion");
+		$this->waitFor(10);
+		$login=$this->getElementById("login");
+		$login->sendKeys("user");
+		$this->waitFor(10);
+		$mdp=$this->getElementById("mdp");
+		$mdp->sendKeys("user");
+		$this->waitFor(10);
+		$bt=$this->getElementById("btLogin");
+		$this->assertNotNull($bt);
+		$bt->click();
+		
 		$this->get("Faqs");
 		$this->assertPageContainsText("Foire aux questions");
 		$this->waitFor(1000);
@@ -22,7 +36,7 @@ class ConnexionTest extends AjaxUnitTest {
 		$this->assertNotNull($href);
 		$href->click();
 		$this->waitFor(1000);
-	}*/
+	}
 	
 	/*public function testTrier() {
 		$this->get("Faqs");
@@ -38,7 +52,7 @@ class ConnexionTest extends AjaxUnitTest {
 		$this->waitFor(1000);		
 	}*/
 	
-	public function testRecherche() {
+	/*public function testRecherche() {
 		$this->get("Faqs");
 		$this->assertPageContainsText("Foire aux questions");
 		$this->waitFor(1000);
@@ -50,12 +64,6 @@ class ConnexionTest extends AjaxUnitTest {
 		$this->assertNotNull($btRecherche);
 		$btRecherche->click();
 		$this->waitFor(1000);
-	}
-	
-	
-	
-	
-	
-	
-	
+	}*/
+		
 }

@@ -63,7 +63,8 @@ class Connexions extends BaseController {
 		}
 		else {
 			$this->header();
-			echo "<span> Votre mot de passe ou login est incorrecte. </span>";
+			echo "<span> <center> Votre mot de passe ou login est incorrecte. </center> </span> <br />";
+			echo "<center> <a href='connexions' class='btn btn-primary' id='btConnexionError'>Retour</a> </center>";
 		}
 		
 		
