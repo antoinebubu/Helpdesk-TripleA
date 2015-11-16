@@ -31,10 +31,6 @@ class Messages extends \_DefaultController {
 		if (Auth::isAdmin()){
 			$obj=DAO::getOne("ticket", "id=".$ticket);
 			$obj->setIdAdmin(Auth::getUser()->getId());
-			
-			if ($obj->getStatut()==0){
-				$obj->setStatut(1);
-			}
 			DAO::update($obj);
 				
 		}
