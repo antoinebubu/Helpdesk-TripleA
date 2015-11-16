@@ -1,5 +1,4 @@
 <?php
-
 use micro\orm\DAO;
 use micro\js\Jquery;
 use micro\views\Gui;
@@ -15,11 +14,6 @@ class TicketsNouveau extends \_DefaultController {
 		$this->title="Tickets";
 		$this->model="Ticket";
 	}
-
-
-
-
-
 	public function messages($id){
 		$ticket=DAO::getOne("Ticket", $id[0]);
 	
@@ -70,7 +64,7 @@ public function index($message=null){
 		foreach ($objects as $object){
 			echo "<tr>";
 			echo "<td>".$object->toString()."</td>";
-			echo "<td class='td-center'><a class='btn btn-primary btn-xs' href='".$baseHref."/frm/".$object->getId()."'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a></td>".
+			echo "<td class='td-center'><a class='btn btn-primary btn-xs' href='tickets/updateStatut/".$object->getId()."'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a></td>".
 			"<td class='td-center'><a class='btn btn-warning btn-xs' href='".$baseHref."/delete/".$object->getId()."'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>";
 			echo "</tr>";
 			
@@ -87,14 +81,26 @@ public function index($message=null){
 		
 	}
 	
+	public function updateStatut($id=NULL){
+		$ticket=$this->getInstance($id);
+		$statut=DAO::getAll("Statut");
+		if($ticket->getStatut()==null){
+			$stat=-1;
+		}
+		else{
+			$stat=$ticket->getStatut()->getId();
+		}
 	
+	
+		$statuts=DAO::getAll("Statut", "1=1");
+		$this->loadView("ticket/vChgtStatut",array("ticket"=>$ticket, "listStatut"=>$statuts));
+	}
 	
 	public function frm($id=NULL){
 		$ticket=$this->getInstance($id);
 		$categories=DAO::getAll("Categorie");
 		$statut=DAO::getAll("Statut");
 		
-
 		if($ticket->getCategorie()==null){
 			$cat=-1;
 			$stat=-1;
@@ -106,13 +112,11 @@ public function index($message=null){
 			$stat=$ticket->getStatut()->getId();
 				
 		}
-
 	
 		
-		$listCat=Gui::select($categories,$cat,"SÃ©lectionner une catÃ©gorie ...");
-		$listStatut=(Gui::select($statut, $stat, "SÃ©lectionner un statut ..."));
-		$listType=Gui::select(array("demande","intervention"),$ticket->getType(),"SÃ©lectionner un type ...");
-
+		$listCat=Gui::select($categories,$cat,"Sélectionner une catégorie ...");
+		$listStatut=(Gui::select($statut, $stat, "Sélectionner un statut ..."));
+		$listType=Gui::select(array("demande","intervention"),$ticket->getType(),"Sélectionner un type ...");
 			$stat=$ticket->getStatut()->getId();
 			$this->loadView("ticket/vAdd",array("ticket"=>$ticket,"listCat"=>$listCat,"listType"=>$listType, "statut"=>$statut, "listStatut"=>$listStatut));
 			echo Jquery::execute("CKEDITOR.replace( 'description');");
@@ -122,12 +126,8 @@ public function index($message=null){
 			/* '<select class="form-control" class="idStatut" name="idStatut"><br>$listStatut<br></select>'; */
 				
 		
-
-
-
 			
 	}
-
 	/* (non-PHPdoc)
 	 * @see _DefaultController::setValuesToObject()
 	 */
@@ -139,31 +139,24 @@ public function index($message=null){
 		$object->setStatut($statut);
 		$user=DAO::getOne("User", $_POST["idUser"]);
 		$object->setUser($user);
-
 	}
-
 	/* (non-PHPdoc)
 	 * @see _DefaultController::getInstance()
 	 */
 	
-
 	/* (non-PHPdoc)
 	 * @see BaseController::isValid()
 	 */
 	public function isValid() {
 		return Auth::isAuth();
 	}
-
 	/* (non-PHPdoc)
 	 * @see BaseController::onInvalidControl()
 	 */
 	public function onInvalidControl() {
 		$this->initialize();
-		$this->messageDanger("<strong>Autorisation refusÃ©e</strong>,<br>Merci de vous connecter pour accÃ©der Ã  ce module.&nbsp;".Auth::getInfoUser("danger"));
+		$this->messageDanger("<strong>Autorisation refusée</strong>,<br>Merci de vous connecter pour accéder à ce module.&nbsp;".Auth::getInfoUser("danger"));
 		$this->finalize();
 		exit;
 	}
-
-
-
 }

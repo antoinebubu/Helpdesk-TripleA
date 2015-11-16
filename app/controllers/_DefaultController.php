@@ -16,7 +16,7 @@ class _DefaultController extends BaseController {
 	/**
 	 * @var int durée en millisecondes d'affichage des messages d'information
 	 */
-	protected $messageTimerInterval=5000;
+	protected $messageTimerInterval=0;
 	/**
 	 * @var string zone titre h1 de la page
 	 */
@@ -55,6 +55,8 @@ class _DefaultController extends BaseController {
 			}
 			$message->setTimerInterval($this->messageTimerInterval);
 			$this->_showDisplayedMessage($message);
+			
+			
 		}
 		$objects=DAO::getAll($this->model);
 		echo "<table class='table table-striped'>";
@@ -122,7 +124,7 @@ class _DefaultController extends BaseController {
 	 * L'affectation des membres de l'objet par le contenu du POST se fait par appel de la méthode setValuesToObject()
 	 * @see _DefaultController::setValuesToObject()
 	 */
-	public function update(){
+public function update(){
 		if(RequestUtils::isPost()){
 			$className=$this->model;
 			$object=new $className();

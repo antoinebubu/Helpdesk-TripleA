@@ -3,7 +3,7 @@
 <head>
 <link rel="icon" type="image/png" href="assets/img/favicon.ico" />
 <base href="<?php echo $config["siteUrl"]?>">
-<title>Helpdesk</title>
+<title>Helpdesk Triple-A</title>
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/js/ckeditor/ckeditor.js"></script>
@@ -22,7 +22,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#" target="_self">HelpDesk</a>
+				<a class="navbar-brand" href="#" target="_self">HelpDesk 3A</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -43,8 +43,8 @@
 	<div class="bs-docs-header">
 		<div class="container">
 			<div class="header">
-				<h1>HelpDesk</h1>
-				<p>Assistance, support et gestion des incidents.</p>
+				<h1>HelpDesk Triple A</h1>
+				<p>Assistance, support et gestion des incidents avec le sourire.</p>
 				<div class="pull-right">
 					<?php
 					echo $infoUser;
