@@ -124,17 +124,21 @@ class _DefaultController extends BaseController {
 	 * L'affectation des membres de l'objet par le contenu du POST se fait par appel de la méthode setValuesToObject()
 	 * @see _DefaultController::setValuesToObject()
 	 */
-	public function update(){
+public function update(){
 		if(RequestUtils::isPost()){
 			$className=$this->model;
 			$object=new $className();
 			$this->setValuesToObject($object);
 			if($_POST["id"]){
 				try{
+					
+					if (Auth::isAdmin() && $object->getId()!=1 && $this->title=="Tickets"){
+						$object->setIdAdmin(Auth::getUser()->getId());
+					}
+					
 					DAO::update($object);
 					
-				
-					$msg = new DisplayedMessage($this->model." `{$object->toString()}` mis à jour");
+					$msg=new DisplayedMessage($this->model." `{$object->toString()}` mis à jour");
 				}catch(\Exception $e){
 					$msg=new DisplayedMessage("Impossible de modifier l'instance de ".$this->model,"danger");
 				}

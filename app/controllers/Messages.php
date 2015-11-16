@@ -23,9 +23,19 @@ class Messages extends \_DefaultController {
 		$contenu = $_POST['newMess'];
 		$user = $_POST['idUser'];
 		$ticket = $_POST['idTicket'];
-		// echo $contenu; echo $user; echo $ticket;
+	
 		DAO::$db->execute("INSERT INTO message(id,contenu,idUser,idTicket) VALUES('','".$contenu."',".$user.",".$ticket.")");
+	
+	
+	
+		if (Auth::isAdmin()){
+			$obj=DAO::getOne("ticket", "id=".$ticket);
+			$obj->setIdAdmin(Auth::getUser()->getId());
+			DAO::update($obj);
+	
+		}
+	
 		$this->forward("Tickets","frm2",$ticket);
-		
+	
 	}
 }

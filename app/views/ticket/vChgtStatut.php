@@ -41,7 +41,7 @@
 	}?>
 	<label>Emetteur</label>
 	<div class="form-control" disabled><?php echo $ticket->getUser()?></div>
-	<label for="dateCreation">Date de création</label>
+	<label for="dateCreation">Date de crÃ©ation</label>
 	<input type="text" name="dateCreation" id="dateCreation" value="<?php echo $ticket->getDateCreation()?>" disabled class="form-control">
 	<input type="hidden" name="id" value="<?php echo $ticket->getId()?>">
 	<input type="hidden" name="idUser" value="<?php echo $ticket->getUser()->getId()?>">
