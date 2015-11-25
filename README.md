@@ -2,23 +2,10 @@
 # helpdesk
 A Helpdesk Application for educational purposes using a micro-framework
 # Howto
-<<<<<<< HEAD
+
 https://travis-ci.org/antoinebubu/Helpdesk-TripleA.svg?branch=master
 Projet (Antoine)² , Apolline ( 1 p 2 l comme poubelle )
 
-=======
-Projet (Antoine)² , Apolline ( 1 p 2 l comme poubelle )
->>>>>>> origin/master
 - [x] fork your own copy of this repository.
 - [x] read the project specifications : [Helpdesk project specifications](http://slamwiki.kobject.net/slam4/helpdesk/)
 - [x] consult the micro-framework api : [documentation](http://api.kobject.net/micro-framework/)
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-DANS LE PLUS GRAND DES CALMES
-=======
-Trello integration...............
-.............
->>>>>>> jcheron/master
-=======
->>>>>>> origin/master
